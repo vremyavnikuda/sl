@@ -16,8 +16,6 @@ add_executable(sl
         ui/display_interface.cpp
         ui/display_interface.h
         global/globals.h
-        service/handle_input.cpp
-        service/handle_input.h
 
 )
 

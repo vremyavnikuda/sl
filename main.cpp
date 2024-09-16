@@ -8,7 +8,6 @@
 #include "service/play_playlist.h"
 #include "ui/display_interface.h"
 #include "global/globals.h"
-#include "service/handle_input.h"
 
 // Определение глобальных переменных
 std::atomic<bool> playing{true};

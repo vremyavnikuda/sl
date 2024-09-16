@@ -4,7 +4,7 @@ LFLAGS = -lmpg123 -lao -lstdc++fs -lncurses
 
 SRC := main.cpp service/get_playlist.cpp service/play_mp3.cpp \
        service/get_music_directory_from_config.cpp service/play_playlist.cpp \
-       service/handle_input.cpp ui/display_interface.cpp
+       ui/display_interface.cpp
 
 
 MAIN := console_player
