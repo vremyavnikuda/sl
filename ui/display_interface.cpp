@@ -5,7 +5,8 @@
 void display_interface(const std::vector<std::string> &playlist, const int &track_index)
 {
     int row, col;
-    clear(); // Очищаем экран
+    // Очищаем экран
+    clear();
 
     // Получаем размер окна терминала
     getmaxyx(stdscr, row, col);
@@ -28,6 +29,6 @@ void display_interface(const std::vector<std::string> &playlist, const int &trac
             mvprintw(i + 1, 0, "%s", playlist[i].c_str());
         }
     }
-
-    refresh(); // Обновляем экран
+    // Обновляем экран
+    refresh();
 }

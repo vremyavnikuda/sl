@@ -61,10 +61,10 @@ void handle_input(bool& running, int& track_index, const std::vector<std::string
         // Сброс флага stop_playing после небольшой задержки, чтобы текущий трек мог корректно завершиться.
         if (stop_playing) {
             std::this_thread::sleep_for(std::chrono::milliseconds(100));
-            stop_playing = false; // Reset stop_playing after a delay
+            stop_playing = false;
         }
 
-        // Задержка для уменьшения нагрузки на процессор
+        // timesleep
         std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 }

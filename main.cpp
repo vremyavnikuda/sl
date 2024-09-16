@@ -48,7 +48,8 @@ int main()
     cbreak();
     noecho();
     keypad(stdscr, TRUE);
-    nodelay(stdscr, TRUE); // Включаем неблокирующий режим для getch()
+    // Включаем неблокирующий режим для getch()
+    nodelay(stdscr, TRUE); 
 
     bool running = true;
 
@@ -60,35 +61,42 @@ int main()
         // Обработка клавиш
         switch (ch)
         {
-        case 'n': // Следующий трек
+        // Следующий трек
+        case 'n':
             stop_playing = true;
             track_index = (track_index + 1) % playlist.size();
             break;
 
-        case 'r': // Предыдущий трек
+        // Предыдущий трек
+        case 'r':
             stop_playing = true;
             track_index = (track_index - 1 + playlist.size()) % playlist.size();
             break;
 
-        case ' ': // Пауза/Продолжить
+        // Пауза/Продолжить
+        case ' ':
             playing = !playing;
             break;
 
-        case 'q': // Выйти из программы
+        // Выйти из программы
+        case 'q':
             running = false;
             exit_flag = true;
             stop_playing = true;
             break;
 
-        case KEY_UP: // Стрелка вверх: выбор предыдущего трека
+        // Стрелка вверх: выбор предыдущего трека
+        case KEY_UP:
             track_index = (track_index - 1 + playlist.size()) % playlist.size();
             break;
 
-        case KEY_DOWN: // Стрелка вниз: выбор следующего трека
+        // Стрелка вниз: выбор следующего трека
+        case KEY_DOWN:
             track_index = (track_index + 1) % playlist.size();
             break;
 
-        case '\n': // Enter: воспроизвести выбранный трек
+        // Enter: воспроизвести выбранный трек
+        case '\n':
             stop_playing = true;
             break;
 
@@ -96,7 +104,7 @@ int main()
             break;
         }
 
-        // Ожидание для снижения нагрузки на процессор
+        // timesleep low thread
         std::this_thread::sleep_for(std::chrono::milliseconds(100));
 
         // Отображение интерфейса
@@ -106,7 +114,7 @@ int main()
     // Завершаем работу ncurses
     endwin();
 
-    // Ожидаем завершения потоков
+    // Ожидаем завершения потоков -> не блокируемые 
     player_thread.join();
 
     std::cout << "All tracks finished." << std::endl;
