@@ -1,6 +1,0 @@
-# ninja log v6
-1	408	1726463867694767281	CMakeFiles/sl.dir/service/get_music_directory_from_config.cpp.o	f17ebf9b8a37d097
-1	427	1726463867694767281	CMakeFiles/sl.dir/ui/display_interface.cpp.o	1070d63ec5a70ff1
-1	439	1726463867694767281	CMakeFiles/sl.dir/service/play_playlist.cpp.o	af231a837e3f7a62
-1	507	1726463867694767281	CMakeFiles/sl.dir/service/play_mp3.cpp.o	f3f52d6635a409b4
-1	663	1726463867694767281	CMakeFiles/sl.dir/service/get_playlist.cpp.o	92fb1c8ddad74665

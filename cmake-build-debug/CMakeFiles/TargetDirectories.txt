@@ -1,3 +1,0 @@
-/home/vremyavnikuda/repository/sl/cmake-build-debug/CMakeFiles/sl.dir
-/home/vremyavnikuda/repository/sl/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/vremyavnikuda/repository/sl/cmake-build-debug/CMakeFiles/rebuild_cache.dir
