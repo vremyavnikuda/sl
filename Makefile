@@ -2,9 +2,7 @@ CXX = g++
 CXXFLAGS := -std=c++17 -Wall -Wextra -g -Iglobal
 LFLAGS = -lmpg123 -lao -lstdc++fs -lncurses
 
-SRC := main.cpp service/get_playlist.cpp service/play_mp3.cpp \
-       service/get_music_directory_from_config.cpp service/play_playlist.cpp \
-       ui/display_interface.cpp
+SRC := main.cpp service/Music.cpp ui/Ui.cpp
 
 
 MAIN := console_player

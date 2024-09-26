@@ -1,23 +1,34 @@
 cmake_minimum_required(VERSION 3.29)
-project(sl)  # Задаем имя проекта
+project(sll)
 
-set(CMAKE_CXX_STANDARD 17)  # Устанавливаем стандарт C++17
+set(CMAKE_CXX_STANDARD 17)  # или выше
 
-# Добавляем все необходимые исходные файлы для сборки
-add_executable(sl
-        main.cpp
-        service/play_mp3.cpp
-        service/get_playlist.h
-        service/get_music_directory_from_config.h
-        service/get_music_directory_from_config.cpp
-        service/get_playlist.cpp
-        service/play_playlist.cpp
-        service/play_playlist.h
-        ui/display_interface.cpp
-        ui/display_interface.h
-        global/globals.h
-
+include_directories(
+        ${CMAKE_SOURCE_DIR}/global
+        ${CMAKE_SOURCE_DIR}/service
+        ${CMAKE_SOURCE_DIR}/ui
 )
 
-# Добавляем флаги для компоновки с библиотеками
-target_link_libraries(sl mpg123 ao ncurses stdc++fs ui global)
+# Проверка наличия необходимых библиотек
+find_package(PkgConfig REQUIRED)
+
+pkg_check_modules(AO REQUIRED libao)
+if (NOT AO_FOUND)
+    message(FATAL_ERROR "libao not found")
+endif()
+
+pkg_check_modules(MPG123 REQUIRED mpg123)
+if (NOT MPG123_FOUND)
+    message(FATAL_ERROR "mpg123 not found")
+endif()
+
+find_package(Curses REQUIRED)  # для ncurses
+
+add_executable(sll main.cpp
+        service/Music.cpp
+        global/global.h
+        ui/Ui.cpp
+        ui/Ui.h
+)
+
+target_link_libraries(sll PRIVATE Curses::Curses ${AO_LIBRARIES} ${MPG123_LIBRARIES})
